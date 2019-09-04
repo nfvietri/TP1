@@ -2,45 +2,80 @@
 #include <stdio.h>
 #include "utn.h"
 
-int sumar(int a, int b)
-{
-	int resultado;
-	resultado = a+b;
-	return resultado;
-}
-
-int restar(int a, int b)
-{
-	int resultado;
-	resultado = a-b;
-	return resultado;
-}
-
-int multiplicar(int a, int b)
-{
-	int resultado;
-	resultado = a*b;
-	return resultado;
-}
-
-int calcularFactorial(int a)
-{
-	int factorial = 1;
-	while(a > 0){
-		factorial = factorial * a;
-		a--;
-	}
-	return factorial;
-}
-
-int dividir(int *resultadoDiv,int a,int b)
+int sumar(int *pResultado, int a, int b)
 {
 	int retorno = EXIT_ERROR;
 	int buffer;
 
+	if(pResultado != NULL)
+	{
+		buffer = a+b;
+		*pResultado = buffer;
+		retorno = EXIT_SUCCESS;
+
+	}
+
+	return retorno;
+}
+
+int restar(int *pResultado, int a, int b)
+{
+	int retorno = EXIT_ERROR;
+	int buffer;
+
+	if(pResultado != NULL)
+	{
+		buffer = a-b;
+		*pResultado = buffer;
+		retorno = EXIT_SUCCESS;
+
+	}
+
+	return retorno;
+}
+
+int multiplicar(int *pResultado, int a, int b)
+{
+	int retorno = EXIT_ERROR;
+	int buffer;
+
+	if(pResultado != NULL)
+	{
+		buffer = a*b;
+		*pResultado = buffer;
+		retorno = EXIT_SUCCESS;
+
+	}
+
+	return retorno;
+}
+
+int calcularFactorial(int *pResultado, int a)
+{
+	int retorno = EXIT_ERROR;
+	int factorial = 1;
+
+	if(pResultado != NULL)
+	{
+		while(a > 0)
+		{
+			factorial = factorial * a;
+			a--;
+			*pResultado = factorial;
+		}
+	}
+
+	return retorno;
+}
+
+int dividir(float *pResultado,int a,int b)
+{
+	int retorno = EXIT_ERROR;
+	float buffer;
+
 	if(b != 0){
-		buffer = a/b;
-		*resultadoDiv = buffer;
+		buffer = (float) a/ (float) b;
+		*pResultado = buffer;
 		retorno = EXIT_SUCCESS;
 	}
 
@@ -85,5 +120,6 @@ int getInt(int *resultado,
 	return retorno;
 
 }
+
 
 

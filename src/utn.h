@@ -1,12 +1,12 @@
 #define EXIT_ERROR -1
 
-int sumar(int a, int b);
+int sumar(int *pResultado, int a, int b);
 
-int restar(int a, int b);
+int restar(int *pResultado, int a, int b);
 
-int multiplicar(int a, int b);
+int multiplicar(int *pResultado, int a, int b);
 
-int calcularFactorial(int a);
+int calcularFactorial(int *pResultado, int a);
 
 int getInt(int *resultado,
 		   char *mensaje,
@@ -15,4 +15,4 @@ int getInt(int *resultado,
 		   int minimo,
 		   int reintentos);
 
-int dividir(int *resultadoDiv,int a,int b);
+int dividir(float *pResultado,int a,int b);

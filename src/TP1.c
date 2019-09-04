@@ -12,22 +12,22 @@ int main(void) {
     int suma;
     int resta;
     int producto;
-    int division;
-    int resultadoDiv;
+    float division;
+    float auxDivision;
     int opcion;
     int factorialNum1;
     int factorialNum2;
 
     do{
 
-    printf( "                           \n"
-    		"--------CALCULADORA--------\n");
-    printf("Por favor, ingrese una opcion\n");
-    printf("1 - Ingresar primer operando\n"
-    	   "2 - Ingresar segundo operando\n"
-    	   "3 - Calcular todas las operaciones\n"
-    	   "4 - Infomar resultados\n"
-    	   "5 - Salir\n");
+    printf( "\n"
+    		"--------CALCULADORA--------\n"
+    		"Por favor, ingrese una opcion\n"
+    		"1 - Ingresar primer operando\n"
+    	   	"2 - Ingresar segundo operando\n"
+    	   	"3 - Calcular todas las operaciones\n"
+    	    "4 - Infomar resultados\n"
+    	    "5 - Salir\n");
 
     scanf("%d", &opcion);
 
@@ -45,22 +45,38 @@ int main(void) {
     		printf("Segundo operando = %d\n", num2);
     		break;
 
-    case 3: suma = sumar(num1, num2);
-    		resta = restar(num1,num2);
-    		producto = multiplicar(num1,num2);
-    		if(dividir(&resultadoDiv,num1,num2) == 0){
-    			division = resultadoDiv;
+    case 3: if(sumar(&resultado,num1,num2) == 0)
+    		{
+    			suma = resultado;
     		}
-    		factorialNum1 = calcularFactorial(num1);
-    		factorialNum2 = calcularFactorial(num2);
+    		if(restar(&resultado,num1,num2) == 0)
+        	{
+    			resta = resultado;
+        	}
+    		if(multiplicar(&resultado,num1,num2) == 0)
+    		{
+    		    producto = resultado;
+    		}
+    		if(dividir(&auxDivision,num1,num2) == 0)
+    		{
+    			division = auxDivision;
+    		}
+    		if(calcularFactorial(&resultado,num1) == 0)
+    		{
+    		    factorialNum1 = resultado;
+    		}
+    		if(calcularFactorial(&resultado,num1) == 0)
+    		{
+    		    factorialNum2 = resultado;
+    		}
     		printf("Se calcularon las operaciones!\n");
     		break;
 
     case 4: printf("El resultado de %d + %d es: %d\n", num1,num2,suma);
     		printf("El resultado de %d - %d es: %d\n", num1,num2,resta);
     		printf("El resultado de %d * %d es: %d\n", num1,num2,producto);
-    		if(dividir(&resultadoDiv,num1,num2) == 0){
-    			printf("El resultado de %d / %d es: %d\n",num1,num2,division);
+    		if(dividir(&auxDivision,num1,num2) == 0){
+    			printf("El resultado de %d / %d es: %f\n",num1,num2,division);
     		} else {
     			printf("No es posible dividir por cero\n");
     		}
