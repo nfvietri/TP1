@@ -1,18 +1,18 @@
 #define EXIT_ERROR -1
 
-int sumar(int *pResultado, int a, int b);
+int sumar(float *pResultado, float a, float b);
 
-int restar(int *pResultado, int a, int b);
+int restar(float *pResultado, float a, float b);
 
-int multiplicar(int *pResultado, int a, int b);
+int multiplicar(float *pResultado, float a, float b);
 
-int calcularFactorial(int *pResultado, int a);
+int calcularFactorial(int *pResultado,int maximo, int minimo, float numero);
 
-int getInt(int *resultado,
-		   char *mensaje,
-		   char *mensajeError,
-		   int maximo,
-		   int minimo,
-		   int reintentos);
+int dividir(float *pResultado,float a, float b);
 
-int dividir(float *pResultado,int a,int b);
+float getFloat( float *resultado,
+				char *mensaje,
+				char *mensajeError,
+		        float maximo,
+				float minimo,
+				int reintentos);
