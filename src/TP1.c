@@ -20,7 +20,6 @@ int main(void) {
     int factorialAux;
 
     do{
-
     printf( "\n"
     		"--------CALCULADORA--------\n"
     		"Por favor, ingrese una opcion\n"
@@ -88,12 +87,8 @@ int main(void) {
     		break;
 
     default: printf("Opcion no valida");
-
     }
-
     }while(opcion != 5);
 
-
 	return EXIT_SUCCESS;
-
 }
