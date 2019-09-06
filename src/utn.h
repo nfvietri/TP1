@@ -16,3 +16,5 @@ float getFloat( float *resultado,
 		        float maximo,
 				float minimo,
 				int reintentos);
+
+

@@ -163,3 +163,4 @@ float getFloat( float *resultado,
 	}
 	return retorno;
 }
+

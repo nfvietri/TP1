@@ -13,15 +13,12 @@ int main(void) {
     float resta;
     float producto;
     float division;
-    float auxDivision;
     int opcion;
     int factorialNum1;
     int factorialNum2;
-    int factorialAux;
 
     do{
-    printf( "\n"
-    		"--------CALCULADORA--------\n"
+    printf( "\n""--------CALCULADORA--------\n"
     		"Por favor, ingrese una opcion\n"
     		"1 - Ingresar primer operando\n"
     	   	"2 - Ingresar segundo operando\n"
@@ -41,22 +38,16 @@ int main(void) {
 
     case 2: if(getFloat(&resultado,"Ingrese el segundo operando\n","Error",2147483647,-2147483648,3) == 0){
 				num2 = resultado;
-				printf("Primer operando = %f\n",num2);
+				printf("Segundo operando = %f\n",num2);
 			}
 			break;
 
-    case 3: if(sumar(&resultado,num1,num2) == 0){
-    			suma = resultado;
-    		}
-    		if(restar(&resultado,num1,num2) == 0){
-    			resta = resultado;
-        	}
-    		if(multiplicar(&resultado,num1,num2) == 0){
-    		    producto = resultado;
-    		}
-    		if(dividir(&auxDivision,num1,num2) == 0){
-    			division = auxDivision;
-    		}
+    case 3: sumar(&suma,num1,num2);
+    		restar(&resta,num1,num2);
+    		multiplicar(&producto,num1,num2);
+    		dividir(&division,num1,num2);
+    		calcularFactorial(&factorialNum1,13,-1,num1);
+    		calcularFactorial(&factorialNum2,13,-1,num2);
 
     		printf("Se calcularon las operaciones!\n");
     		break;
@@ -64,19 +55,17 @@ int main(void) {
     case 4: printf("El resultado de %f + %f es: %f\n", num1,num2,suma);
     		printf("El resultado de %f - %f es: %f\n", num1,num2,resta);
     		printf("El resultado de %f * %f es: %f\n", num1,num2,producto);
-    		if(dividir(&auxDivision,num1,num2) == 0){
+    		if(dividir(&division,num1,num2) == 0){
     			printf("El resultado de %f / %f es: %f\n",num1,num2,division);
     		} else {
     			printf("No es posible dividir por cero\n");
     		}
-    		if(calcularFactorial(&factorialAux,13,-1,num1) == 0){
-    		    factorialNum1 = factorialAux;
+    		if(calcularFactorial(&factorialNum1,13,-1,num1) == 0){
     		    printf("El factorial de %d es: %d\n",(int)num1,factorialNum1);
     		} else {
     			printf("El factorial de %d es: El valor es muy alto!\n",(int)num1);
     		}
-    		if(calcularFactorial(&factorialAux,13,-1,num2) == 0){
-    		    factorialNum2 = factorialAux;
+    		if(calcularFactorial(&factorialNum2,13,-1,num2) == 0){
     		    printf("El factorial de %d es: %d\n",(int)num2,factorialNum2);
     		} else {
     			printf("El factorial de %d es: El valor es muy alto!\n",(int)num2);
